@@ -1,0 +1,354 @@
+/* ------------------------------------------------------------------
+   Shared furniture: labels, rules, buttons, tags, stamps, tape
+   ------------------------------------------------------------------ */
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gut);
+}
+
+.wrap--narrow {
+  max-width: 860px;
+}
+
+/* small caps label, the way a hand-painted shelf card would read */
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  margin: 0;
+}
+
+.label--ink {
+  color: var(--ink-2);
+}
+.label--paper {
+  color: var(--felt-300);
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+.lede {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--fg-soft);
+  max-width: 54ch;
+}
+
+.mono-note {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--fg-faint);
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+
+.rule--faded {
+  background: repeating-linear-gradient(
+    to right,
+    var(--line) 0 4px,
+    transparent 4px 8px
+  );
+}
+
+/* --- section headers ------------------------------------------- */
+.sec-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.9rem;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: var(--gap, 1.75rem);
+}
+.sec-head h2 {
+  margin: 0.35rem 0 0;
+}
+.sec-head__side {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-bottom: 0.4rem;
+}
+
+/* --- buttons --------------------------------------------------- */
+.btn {
+  --btn-bg: var(--oak-900);
+  --btn-fg: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  padding: 0.72em 1.25em;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1.5px solid var(--oak-900);
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: var(--step--1);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 0 0 var(--oak-900);
+  transition:
+    transform 0.14s var(--ease),
+    box-shadow 0.14s var(--ease),
+    background 0.14s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 0 var(--oak-900);
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 0 var(--oak-900);
+}
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--red {
+  --btn-bg: var(--red);
+  --btn-fg: #fdf3e9;
+  border-color: var(--red-dark);
+  box-shadow: 0 2px 0 0 var(--red-dark);
+}
+.btn--red:hover {
+  box-shadow: 0 4px 0 0 var(--red-dark);
+}
+.btn--red:active {
+  box-shadow: 0 1px 0 0 var(--red-dark);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 0 2px 0 0 var(--ink);
+}
+.btn--ghost:hover {
+  background: var(--ink);
+  --btn-fg: var(--paper);
+  box-shadow: 0 4px 0 0 var(--ink);
+}
+
+.btn--paper {
+  --btn-bg: var(--paper);
+  --btn-fg: var(--oak-900);
+  border-color: var(--oak-800);
+  box-shadow: 0 2px 0 0 var(--oak-800);
+}
+.btn--paper:hover {
+  --btn-fg: var(--paper);
+  box-shadow: 0 4px 0 0 var(--oak-800);
+}
+
+.btn--sm {
+  padding: 0.45em 0.9em;
+  font-size: var(--step--2);
+  box-shadow: 0 2px 0 0 currentColor;
+}
+.btn--lg {
+  padding: 0.9em 1.7em;
+  font-size: var(--step-0);
+}
+
+.link-more {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+.link-more:hover {
+  color: var(--red);
+}
+
+/* --- tags / chips ---------------------------------------------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2em 0.6em;
+  border: 1.2px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  color: var(--fg-soft);
+  background: color-mix(in srgb, var(--paper-2) 70%, transparent);
+  white-space: nowrap;
+}
+.tag--solid {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tag--red {
+  background: var(--red);
+  color: #fdf3e9;
+  border-color: var(--red-dark);
+}
+.tag--brass {
+  background: var(--brass-soft);
+  border-color: color-mix(in srgb, var(--brass) 70%, var(--oak-800));
+  color: var(--oak-900);
+}
+.tag--me {
+  background: var(--felt-700);
+  color: var(--paper);
+  border-color: var(--felt-900);
+}
+
+.chip {
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 500;
+  padding: 0.4em 0.85em;
+  border-radius: var(--r-pill);
+  border: 1.5px solid var(--line-strong);
+  background: color-mix(in srgb, var(--paper-2) 60%, transparent);
+  color: var(--fg-soft);
+  cursor: pointer;
+  transition:
+    background 0.15s var(--ease),
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
+}
+.chip:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.chip[aria-pressed="true"] {
+  background: var(--felt-700);
+  border-color: var(--felt-900);
+  color: var(--paper);
+}
+.chip .x {
+  opacity: 0.55;
+  margin-left: 0.2em;
+}
+
+/* --- felt panels ------------------------------------------------ */
+.felt {
+  background-color: var(--felt-700);
+  background-image:
+    radial-gradient(120% 90% at 20% 0%, rgba(122, 166, 147, 0.22), transparent 60%),
+    radial-gradient(90% 120% at 100% 100%, rgba(16, 36, 28, 0.55), transparent 55%);
+  color: var(--paper);
+  position: relative;
+}
+.felt > * {
+  position: relative;
+}
+
+/* paper card with a torn-ish edge feel */
+.card {
+  background: var(--bg-raise);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-1);
+}
+
+/* --- tape -------------------------------------------------------- */
+.tape {
+  position: absolute;
+  width: 92px;
+  height: 26px;
+  background: color-mix(in srgb, var(--brass-soft) 62%, transparent);
+  border-left: 1px dashed color-mix(in srgb, var(--oak-700) 40%, transparent);
+  border-right: 1px dashed color-mix(in srgb, var(--oak-700) 40%, transparent);
+  box-shadow: 0 1px 3px rgba(58, 42, 29, 0.2);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* rotated rubber stamp */
+.stamp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  border: 2px solid var(--red);
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+  transform: rotate(-6deg);
+  opacity: 0.85;
+}
+
+/* handwriting-ish squiggle underline */
+.squiggle {
+  display: block;
+  color: var(--red);
+  margin-top: 0.35rem;
+}
+
+/* --- paper grain (kept subtle, sits under everything) ---------- */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: var(--grain-url);
+  background-size: 180px 180px;
+}
+
+.pad {
+  padding-block: clamp(3rem, 2rem + 5vw, 6.5rem);
+}
+.pad-sm {
+  padding-block: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+}
+
+.stack-sm > * + * {
+  margin-top: 0.75rem;
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

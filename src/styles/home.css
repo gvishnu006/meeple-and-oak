@@ -1,0 +1,247 @@
+/* ------------------------------------------------------------------
+   Home-only pieces: pick cards, how-it-works, tuck, join page extras
+   ------------------------------------------------------------------ */
+
+.picks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+}
+
+.pickcard {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 1rem;
+  background: var(--bg-raise);
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-md);
+  padding: 0.9rem;
+  box-shadow: var(--shadow-1);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  align-items: center;
+}
+.pickcard:hover {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: var(--shadow-2);
+  border-color: var(--ink);
+}
+.pickcard__art {
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: var(--shadow-box);
+  transform: rotate(-2deg);
+}
+.pickcard__art .box__art {
+  aspect-ratio: 3 / 4;
+  box-shadow: none;
+}
+.pickcard__body h3 {
+  font-size: var(--step-1);
+  margin: 0.2rem 0 0.35rem;
+}
+.pickcard__body h3 a {
+  text-decoration: none;
+}
+.pickcard__body h3 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 0.16em;
+}
+.pickcard__why {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--fg-soft);
+  margin: 0 0 0.55rem;
+}
+
+/* how it works */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  counter-reset: step;
+}
+.step {
+  border-top: 1.5px solid var(--ink);
+  padding-top: 1rem;
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+}
+.step__n {
+  display: flex;
+}
+.step h3 {
+  font-size: var(--step-1);
+  margin: 0.3rem 0 0;
+}
+.step p {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--fg-soft);
+  max-width: 40ch;
+}
+
+/* the closing two-column tuck */
+.tuck {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: center;
+  background: var(--felt-700);
+  color: var(--paper);
+  padding: clamp(1.4rem, 3.4vw, 2.6rem);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-2);
+  background-image:
+    radial-gradient(120% 100% at 15% 0%, rgba(122, 166, 147, 0.24), transparent 60%),
+    radial-gradient(90% 120% at 100% 100%, rgba(16, 36, 28, 0.6), transparent 55%);
+}
+.tuck h2 {
+  color: var(--paper);
+  max-width: 22ch;
+}
+.tuck .lede {
+  color: color-mix(in srgb, var(--paper) 84%, transparent);
+}
+.tuck .shelfcard {
+  background: var(--paper);
+  border-color: var(--oak-900);
+  box-shadow: 0 14px 24px -14px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 760px) {
+  .tuck {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shelf__foot {
+  text-align: center;
+  padding-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nf__shelf {
+  width: min(100%, 760px);
+  margin-top: 1rem;
+}
+
+/* --- join page extras ------------------------------------------- */
+.plainlist {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--fg-soft);
+  max-width: 56ch;
+}
+.plainlist li {
+  margin-bottom: 0.5rem;
+}
+
+.hours-card {
+  padding: 1.2rem 1.3rem;
+}
+.hours {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.7rem;
+  font-size: var(--step--1);
+}
+.hours th,
+.hours td {
+  text-align: left;
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+.hours tr[data-today] {
+  background: color-mix(in srgb, var(--brass-soft) 40%, transparent);
+}
+.hours tr[data-today] th {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.hours td {
+  text-align: right;
+}
+.hours__note {
+  text-align: right;
+  width: 5.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  color: var(--fg-faint);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.faq {
+  display: grid;
+  gap: 0;
+  border-top: 1.5px solid var(--ink);
+  max-width: 780px;
+}
+.faq__item {
+  border-bottom: 1.5px solid var(--line);
+}
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0.2rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.faq__item summary:hover {
+  color: var(--red);
+}
+.faq__mark {
+  position: relative;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+.faq__mark::before,
+.faq__mark::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+  transition: transform 0.22s var(--ease);
+}
+.faq__mark::before {
+  left: 0;
+  top: 8px;
+  width: 18px;
+  height: 2px;
+}
+.faq__mark::after {
+  left: 8px;
+  top: 0;
+  width: 2px;
+  height: 18px;
+}
+.faq__item[open] .faq__mark::after {
+  transform: scaleY(0);
+}
+.faq__item p {
+  margin: 0 0 1rem;
+  color: var(--fg-soft);
+  max-width: 66ch;
+}
