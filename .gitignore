@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+.vercel
+*.local
+shots
+shots.mjs
+audit.mjs
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
