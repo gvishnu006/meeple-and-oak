@@ -11,3 +11,5 @@ audit.mjs
 .env
 .env.*
 !.env.example
+
+.vercel
